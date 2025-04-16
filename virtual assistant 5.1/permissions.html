@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>权限设置 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='users.html'">用户管理</div>
+                <div class="menu-item active">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='statistics.html'">数据统计</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>权限设置</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 权限设置内容 -->
+            <div class="page-content">
+                <div class="permissions-grid">
+                    <div class="permission-card">
+                        <h3>管理员权限</h3>
+                        <div class="permission-list">
+                            <label class="permission-item">
+                                <input type="checkbox" checked disabled> 用户管理
+                            </label>
+                            <label class="permission-item">
+                                <input type="checkbox" checked disabled> 系统设置
+                            </label>
+                            <label class="permission-item">
+                                <input type="checkbox" checked disabled> 数据导出
+                            </label>
+                        </div>
+                    </div>
+                    <div class="permission-card">
+                        <h3>研究员权限</h3>
+                        <div class="permission-list">
+                            <label class="permission-item">
+                                <input type="checkbox" checked> 查询功能
+                            </label>
+                            <label class="permission-item">
+                                <input type="checkbox"> 数据导出
+                            </label>
+                            <label class="permission-item">
+                                <input type="checkbox"> 批量处理
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
