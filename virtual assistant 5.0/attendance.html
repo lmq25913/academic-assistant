@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>签到管理 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='users.html'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='permissions.html'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='statistics.html'">数据统计</div>
+                <div class="menu-item active">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>签到管理</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 签到管理内容 -->
+            <div class="page-content">
+                <!-- 实时签到提醒 -->
+                <div class="attendance-alert" id="attendanceAlert">
+                    <!-- 实时提醒将在这里显示 -->
+                </div>
+
+                <!-- 今日签到统计 -->
+                <div class="attendance-stats">
+                    <div class="stat-card">
+                        <h3>今日应到</h3>
+                        <div class="stat-number">35</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>已签到</h3>
+                        <div class="stat-number success">28</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>未签到</h3>
+                        <div class="stat-number warning">7</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>签到率</h3>
+                        <div class="stat-number">80%</div>
+                    </div>
+                </div>
+
+                <!-- 签到记录表格 -->
+                <div class="attendance-table-container">
+                    <div class="table-header">
+                        <h3>今日签到记录</h3>
+                        <div class="table-actions">
+                            <input type="date" id="dateFilter" class="date-filter">
+                            <select id="statusFilter" class="status-filter">
+                                <option value="all">全部状态</option>
+                                <option value="success">已签到</option>
+                                <option value="pending">未签到</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>工号</th>
+                                <th>签到时间</th>
+                                <th>签到状态</th>
+                                <th>识别结果</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceList">
+                            <!-- 签到记录将动态插入这里 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script src="attendance.js"></script>
+</body>
+</html> 
