@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item active">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='permissions.html'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='statistics.html'">数据统计</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>用户管理</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                </div>
+            </div>
+
+            <!-- 用户管理内容 -->
+            <div class="page-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>角色</th>
+                            <th>注册时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>user001</td>
+                            <td>管理员</td>
+                            <td>2023-03-15</td>
+                            <td>
+                                <button class="edit-btn">编辑</button>
+                                <button class="delete-btn">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>researcher002</td>
+                            <td>研究员</td>
+                            <td>2023-04-20</td>
+                            <td>
+                                <button class="edit-btn">编辑</button>
+                                <button class="delete-btn">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
