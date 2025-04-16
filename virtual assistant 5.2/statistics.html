@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据统计 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='users.html'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='permissions.html'">权限设置</div>
+                <div class="menu-item active">数据统计</div>
+                <div class="menu-item" onclick="window.location.href='attendance.html'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>数据统计</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 数据统计内容 -->
+            <div class="page-content">
+                <div class="statistics-container">
+                    <div class="chart-card">
+                        <h3>查询类型分布</h3>
+                        <canvas id="queryTypeChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>用户活跃度</h3>
+                        <canvas id="userActivityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
