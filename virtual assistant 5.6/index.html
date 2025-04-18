@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页概览 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='users.html'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='permissions.html'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='attendance.html'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='temperature.html'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='surveillance.html'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='more-features.html'">更多功能</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>主页概览</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 主页内容 -->
+            <div class="page-content">
+                <!-- 欢迎区域 -->
+                <div class="welcome-section">
+                    <h1 class="welcome-title">欢迎使用学术助手管理系统</h1>
+                    <p class="welcome-subtitle">高效、智能的实验室管理平台，助力科研工作更上一层楼</p>
+                </div>
+
+                <!-- 功能介绍卡片 -->
+                <div class="features-grid">
+                    <!-- 第一行 -->
+                    <div class="feature-card" onclick="window.location.href='users.html'">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-title">用户管理</div>
+                        <div class="feature-description">
+                            管理系统用户账号、角色设置等。支持批量导入导出，快速处理用户申请。
+                        </div>
+                    </div>
+
+                    <div class="feature-card" onclick="window.location.href='permissions.html'">
+                        <div class="feature-icon">🔐</div>
+                        <div class="feature-title">权限设置</div>
+                        <div class="feature-description">
+                            灵活配置不同角色的权限，确保系统安全性。支持自定义权限组，满足多样化需求。
+                        </div>
+                    </div>
+
+                    <div class="feature-card" onclick="window.location.href='attendance.html'">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-title">签到管理</div>
+                        <div class="feature-description">
+                            记录实验室人员出勤情况，支持多种签到方式。实时统计签到率，自动提醒功能。
+                        </div>
+                    </div>
+
+                    <!-- 第二行 -->
+                    <div class="feature-card" onclick="window.location.href='temperature.html'">
+                        <div class="feature-icon">🌡️</div>
+                        <div class="feature-title">温度监控</div>
+                        <div class="feature-description">
+                            实时监测实验室温度变化，提供温度趋势图表。智能提醒和着装建议，确保实验环境舒适。
+                        </div>
+                    </div>
+
+                    <div class="feature-card" onclick="window.location.href='surveillance.html'">
+                        <div class="feature-icon">📹</div>
+                        <div class="feature-title">视频监控</div>
+                        <div class="feature-description">
+                            实时监控实验室门口情况，非工作时间自动预警和记录。支持异常行为检测和即时通知。
+                        </div>
+                    </div>
+
+                    <div class="feature-card" onclick="window.location.href='logs.html'">
+                        <div class="feature-icon">📄</div>
+                        <div class="feature-title">系统日志</div>
+                        <div class="feature-description">
+                            记录系统运行状态和重要操作，支持多维度筛选查询。异常情况实时告警，保障系统稳定。
+                        </div>
+                    </div>
+
+                    <div class="feature-card" onclick="window.location.href='more-features.html'">
+                        <div class="feature-icon">🚀</div>
+                        <div class="feature-title">更多功能</div>
+                        <div class="feature-description">
+                            探索未来发展计划，了解即将推出的新功能。期待您的建议，共同打造更好的实验室管理系统。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快速统计 -->
+                <div class="quick-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">系统运行稳定性</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">全天候监控</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">5s</div>
+                        <div class="stat-label">平均响应时间</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">故障处理率</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
