@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频监控 - 学术助手管理端</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='index.html'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='users.html'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='permissions.html'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='attendance.html'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='temperature.html'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='surveillance.html'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='logs.html'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='more-features.html'">更多功能...</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>视频监控</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 监控内容 -->
+            <div class="surveillance-container">
+                <!-- 主监控画面 -->
+                <div class="main-video-container">
+                    <div class="video-feed">
+                        <video id="mainVideo" autoplay muted></video>
+                        <div class="video-overlay">
+                            <div class="camera-info">
+                                <span class="camera-name">实验室门口</span>
+                                <span class="recording-status">● 实时录制中</span>
+                            </div>
+                            <div class="time-stamp"></div>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" id="fullscreenBtn">
+                            <span class="icon">🔍</span> 全屏
+                        </button>
+                        <button class="control-btn" id="snapshotBtn">
+                            <span class="icon">📸</span> 截图
+                        </button>
+                        <button class="control-btn" id="recordBtn">
+                            <span class="icon">⏺</span> 录制
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右侧面板 -->
+                <div class="side-panel">
+                    <!-- 工作时间设置 -->
+                    <div class="settings-card">
+                        <h3>工作时间设置</h3>
+                        <div class="time-settings">
+                            <div class="time-input">
+                                <label>开始时间</label>
+                                <input type="time" id="workStartTime" value="08:00">
+                            </div>
+                            <div class="time-input">
+                                <label>结束时间</label>
+                                <input type="time" id="workEndTime" value="22:00">
+                            </div>
+                        </div>
+                        <button class="save-btn" onclick="saveWorkingHours()">保存设置</button>
+                    </div>
+
+                    <!-- 警报记录 -->
+                    <div class="alert-card">
+                        <h3>异常记录</h3>
+                        <div class="alert-list" id="alertList">
+                            <!-- 警报记录将通过JavaScript动态添加 -->
+                        </div>
+                    </div>
+
+                    <!-- 实时状态 -->
+                    <div class="status-card">
+                        <h3>系统状态</h3>
+                        <div class="status-item">
+                            <span class="status-label">监控状态</span>
+                            <span class="status-value active">运行中</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">当前模式</span>
+                            <span class="status-value" id="currentMode">工作时间</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">移动检测</span>
+                            <span class="status-value" id="motionStatus">已启用</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 警报弹窗 -->
+    <div class="alert-modal" id="alertModal">
+        <div class="alert-modal-content">
+            <h2>⚠️ 异常进入警报</h2>
+            <div class="alert-details">
+                <img id="alertSnapshot" src="" alt="异常进入抓拍">
+                <div class="alert-info">
+                    <p>时间：<span id="alertTime"></span></p>
+                    <p>位置：实验室门口</p>
+                    <p>状态：非工作时间异常进入</p>
+                </div>
+            </div>
+            <div class="alert-actions">
+                <button class="primary-btn" onclick="handleAlert('处理')">处理</button>
+                <button class="secondary-btn" onclick="handleAlert('忽略')">忽略</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="surveillance.js"></script>
+</body>
+</html> 
