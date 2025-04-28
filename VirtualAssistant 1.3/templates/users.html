@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 学术助手管理端</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='/index'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='/users'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='/permissions'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='/attendance'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='/temperature'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='/surveillance'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='/logs'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='/more-features'">更多功能...</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>用户管理</h2>
+                <div class="user-profile">
+                    <button id="addUserBtn" class="add-user-btn" onclick="showAddUserDialog()">添加用户</button>
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 用户管理内容 -->
+            <div class="page-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>角色</th>
+                            <th>状态</th>
+                            <th>注册时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- 用户数据将通过JavaScript动态加载 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 添加用户对话框 -->
+            <div id="addUserDialog" class="dialog">
+                <div class="dialog-content">
+                    <h3>添加新用户</h3>
+                    <form id="addUserForm">
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">角色</label>
+                            <select id="role" name="role" required>
+                                <option value="admin">管理员</option>
+                                <option value="teacher">教师</option>
+                                <option value="student">学生</option>
+                            </select>
+                        </div>
+                        <div class="dialog-buttons">
+                            <button type="button" class="cancel-btn" onclick="hideAddUserDialog()">取消</button>
+                            <button type="submit" class="save-btn">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 编辑用户对话框 -->
+            <div id="editUserDialog" class="dialog">
+                <div class="dialog-content">
+                    <h3>编辑用户</h3>
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserId">
+                        <div class="form-group">
+                            <label for="editUsername">用户名</label>
+                            <input type="text" id="editUsername" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPassword">密码（留空则不修改）</label>
+                            <input type="password" id="editPassword" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="editRole">角色</label>
+                            <select id="editRole" name="role" required>
+                                <option value="admin">管理员</option>
+                                <option value="teacher">教师</option>
+                                <option value="student">学生</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editIsActive">状态</label>
+                            <select id="editIsActive" name="is_active" required>
+                                <option value="true">启用</option>
+                                <option value="false">禁用</option>
+                            </select>
+                        </div>
+                        <div class="dialog-buttons">
+                            <button type="button" class="cancel-btn" onclick="hideEditUserDialog()">取消</button>
+                            <button type="submit" class="save-btn">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/users.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 
