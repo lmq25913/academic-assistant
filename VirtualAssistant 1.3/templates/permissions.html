@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>权限设置 - 学术助手管理端</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='/index'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='/users'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='/permissions'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='/attendance'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='/temperature'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='/surveillance'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='/logs'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='/more-features'">更多功能...</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>权限设置</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 权限设置内容 -->
+            <div class="page-content">
+                <div class="permissions-grid">
+                    <!-- 管理员权限 -->
+                    <div class="permission-card admin">
+                        <div class="permission-header">
+                            <h3>管理员权限</h3>
+                            <span class="role-badge admin">最高权限</span>
+                        </div>
+                        <div class="permission-list">
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>用户管理（添加/编辑/删除用户）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>权限设置（配置角色权限）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>系统设置（系统配置管理）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>视频监控（查看和管理所有监控）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>签到管理（管理所有人员签到）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>温度监控（查看和设置温度）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>系统日志（查看所有日志）</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 教师权限 -->
+                    <div class="permission-card teacher">
+                        <div class="permission-header">
+                            <h3>教师权限</h3>
+                            <span class="role-badge teacher">中级权限</span>
+                        </div>
+                        <div class="permission-list">
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看学生信息</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>管理学生签到</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看监控画面</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看温度数据</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>导出数据报表</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" disabled>
+                                <label>系统设置（无权限）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" disabled>
+                                <label>用户管理（无权限）</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学生权限 -->
+                    <div class="permission-card student">
+                        <div class="permission-header">
+                            <h3>学生权限</h3>
+                            <span class="role-badge student">基础权限</span>
+                        </div>
+                        <div class="permission-list">
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看个人信息</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>进行签到打卡</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看实验室温度</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" checked disabled>
+                                <label>查看个人统计</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" disabled>
+                                <label>管理他人信息（无权限）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" disabled>
+                                <label>查看系统日志（无权限）</label>
+                            </div>
+                            <div class="permission-item">
+                                <input type="checkbox" disabled>
+                                <label>系统设置（无权限）</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 

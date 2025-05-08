@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统日志 - 学术助手管理端</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='/index'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='/users'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='/permissions'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='/attendance'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='/temperature'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='/surveillance'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='/logs'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='/more-features'">更多功能...</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>系统日志</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 系统日志内容 -->
+            <div class="page-content">
+                <div class="log-filters">
+                    <select class="log-level-filter">
+                        <option value="all">所有级别</option>
+                        <option value="info">信息</option>
+                        <option value="warning">警告</option>
+                        <option value="error">错误</option>
+                    </select>
+                    <input type="date" class="log-date-filter">
+                </div>
+                <div class="log-list">
+                    <div class="log-item info">
+                        <span class="log-time">2024-03-15 10:30:15</span>
+                        <span class="log-level">信息</span>
+                        <span class="log-content">系统正常运行中</span>
+                    </div>
+                    <div class="log-item warning">
+                        <span class="log-time">2024-03-15 10:28:30</span>
+                        <span class="log-level">警告</span>
+                        <span class="log-content">服务器负载较高</span>
+                    </div>
+                    <div class="log-item error">
+                        <span class="log-time">2024-03-15 10:25:45</span>
+                        <span class="log-level">错误</span>
+                        <span class="log-content">数据库连接超时</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/logs.js"></script>
+</body>
+</html> 

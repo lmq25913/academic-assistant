@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温度监控 - 学术助手管理端</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">学术助手管理端</div>
+            <nav>
+                <div class="menu-item" onclick="window.location.href='/index'">主页概览</div>
+                <div class="menu-item" onclick="window.location.href='/users'">用户管理</div>
+                <div class="menu-item" onclick="window.location.href='/permissions'">权限设置</div>
+                <div class="menu-item" onclick="window.location.href='/attendance'">签到管理</div>
+                <div class="menu-item" onclick="window.location.href='/temperature'">温度监控</div>
+                <div class="menu-item" onclick="window.location.href='/surveillance'">视频监控</div>
+                <div class="menu-item" onclick="window.location.href='/logs'">系统日志</div>
+                <div class="menu-item" onclick="window.location.href='/more-features'">更多功能...</div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <div class="navbar">
+                <h2>温度监控</h2>
+                <div class="user-profile">
+                    <span>管理员</span>
+                    <div class="avatar">👤</div>
+                    <button class="logout-btn" onclick="handleLogout()">退出</button>
+                </div>
+            </div>
+
+            <!-- 温度监控内容 -->
+            <div class="page-content">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>当前温度</h3>
+                        <div class="stat-number" id="currentTemp">25°C</div>
+                        <div class="stat-trend neutral">实时更新</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>今日最高温</h3>
+                        <div class="stat-number" id="maxTemp">28°C</div>
+                        <div class="stat-trend positive">14:30记录</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>今日最低温</h3>
+                        <div class="stat-number" id="minTemp">20°C</div>
+                        <div class="stat-trend negative">06:00记录</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>平均温度</h3>
+                        <div class="stat-number" id="avgTemp">24°C</div>
+                        <div class="stat-trend neutral">今日平均</div>
+                    </div>
+                </div>
+                <div class="temperature-dashboard">
+                    <div class="chart-container">
+                        <canvas id="temperatureChart"></canvas>
+                    </div>
+                    <div class="temperature-tips">
+                        <h3>温度提示</h3>
+                        <div id="tempTipsContainer">
+                            <!-- 温度提示将动态插入这里 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 
